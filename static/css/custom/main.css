@@ -7,7 +7,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .footer div{
@@ -17,10 +17,24 @@
 .console-output{
     background-color: black;
     color: black;
+    text-align: left;
+    font-family: 'Courier Prime', monospace;
+    width: 75%;
+    border-radius: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: auto;
+    margin-bottom: 20px;
 }
 
 .console-line{
     color: white;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.console-line p{
+
 }
 
 .feature-container{
@@ -30,4 +44,17 @@
 
 .feature{
     display: inline;
+}
+
+.message{
+    width:90%;
+    border-radius: 8px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    position: fixed;
+}
+
+nav{
+    margin-bottom: 20px;
 }

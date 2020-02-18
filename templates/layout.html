@@ -5,30 +5,27 @@
         <title>YAVS GUI</title>
         <link href="../static/css/bootstrap.css" rel="stylesheet">
         <link href="../static/css/custom/main.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
     </head>
 
     <body>
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
                 <img src="https://getbootstrap.com/docs/4.4/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-                YAVS - {{ip}}
+                YAVS {% if ip is defined %}- {{ip}} {% endif %}
             </a>
+            <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+            </li>
         </nav>
         <div class="main_container">
         {% if message_list is defined %}
             {% for message in message_list %}
-            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                  <img src="..." class="rounded mr-2" alt="...">
-                  <strong class="mr-auto">Notification</strong>
-                  <small class="text-muted"></small>
-                  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="toast-body">
-                  {{ message }}
-                </div>
+            <div class="alert alert-warning alert-dismissible fade show message" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
             {% endfor %}
         {% endif %}

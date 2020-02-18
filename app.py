@@ -20,4 +20,4 @@ def main():
 def ping(target):
     result = requests.get("http://localhost:5000/ping/" + target)
     result = result.json()
-    return render_template('ping.html', json=result)
+    return render_template('ping.html', json=result, message_list=['Ping command done !'])

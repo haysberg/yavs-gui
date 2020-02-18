@@ -1,1 +1,11 @@
-Hello {{ip}}
+{% extends "layout.html" %}
+{% block content %}
+    <p>Hello {{ip}}</p>
+    <div class="feature-container">
+        <div class="feature">
+            <button class="btn btn-primary" type="submit" onclick="jsping()">
+                <B>Ping</B> </button> <input id="pinginput" class="form-control">
+        </div>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,33 @@
+.main_container{
+    text-align: center;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 0;
+}
+
+.footer div{
+    padding-bottom: 0;
+}
+
+.console-output{
+    background-color: black;
+    color: black;
+}
+
+.console-line{
+    color: white;
+}
+
+.feature-container{
+    max-width: 50%;
+
+}
+
+.feature{
+    display: inline;
+}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Results of the ping command : </h2>
+    <div class="console-output">
+        {% for line in json %}
+            <div class="console-line">
+                <p>{{ line }}</p>
+            </div>
+            <br>
+        {% endfor %}
+        </div>
+{% endblock %}

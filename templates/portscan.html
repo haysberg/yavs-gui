@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Port #</th>
+                  <th scope="col">Protocol</th>
+                  <th scope="col">L3 Protocol</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+        {% if json is defined %}
+            {% for port, info in json.items() %}
+            <tr>
+                
+                {% if info == "NO INFO" %}
+                    <th>{{ port }}</th>
+                    <td>NO INFO</td>
+                    <td>NO INFO</td>
+                    <td>NO INFO</td>
+                </tr>
+                {% else %}
+                    {% for description in info %}
+                        <th>{{ port }}</th>
+                        <td>{{ description.name }}</td>
+                        <td>{{ description.protocol }}</td>
+                        <td>{{ description.description }}</td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                
+            {% endfor %}
+        {% endif %}
+    </table>
+    <a href="/"><button type="button" class="btn btn-success">Run another test</button></a>
+{% endblock %}

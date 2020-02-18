@@ -1,9 +1,14 @@
 .main_container{
+    margin:auto;
+}
+
+.main-container .feature{
+    margin:auto;
     text-align: center;
 }
 
 .footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -33,17 +38,18 @@
     margin-left: 10px;
 }
 
-.console-line p{
-
-}
-
 .feature-container{
     max-width: 50%;
+    margin:auto;
+}
 
+.feature-container *{
+    margin: auto;
+    margin-top: 10px;
 }
 
 .feature{
-    display: inline;
+    width: 100% !important;
 }
 
 .message{
@@ -57,4 +63,9 @@
 
 nav{
     margin-bottom: 20px;
+}
+
+table{
+    width:90% !important;
+    margin: auto !important;
 }

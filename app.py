@@ -21,3 +21,9 @@ def ping(target):
     result = requests.get("http://localhost:5000/ping/" + target)
     result = result.json()
     return render_template('ping.html', json=result, message_list=['Ping command done !'])
+
+@app.route('/portscan/<target>')
+def portscan(target):
+    result = requests.get("http://localhost:5000/portscan/" + target)
+    result = result.json()
+    return render_template('portscan.html', json=result, message_list=['Portscan done !'])

@@ -1,9 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="feature-container">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Welcome on YAVS !</h4>
+            <p>We hope that you'll feel right at home here, and that your security audit can be as smooth as possible.</p>
+            <hr>
+            <p class="mb-0">If you want to check our source code or want to report a bug feel free to check our <a href="https://github.com/Couaque/yavs-gui">GitHub page</a>.</p>
+          </div>
         <div class="feature">
-            <button class="btn btn-primary" type="submit" onclick="jsping()">
-                <B>Ping</B> </button> <input id="pinginput" class="form-control">
+            <button class="btn btn-primary" type="submit"><B onclick="jsping()">Ping</B><input placeholder="IP / FQDN" id="pinginput" class="form-control"></button> 
+        </div>
+        <div class="feature">
+            <button class="btn btn-primary" type="submit"><B onclick="jsportscan()">Port scan</B><input placeholder="IP / FQDN" id="portscaninput" class="form-control"></button> 
         </div>
     </div>
 {% endblock %}

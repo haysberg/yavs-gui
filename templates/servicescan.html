@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Port #</th>
+                  <th scope="col">Opened / Closed</th>
+                  <th scope="col">Service</th>
+                  <th scope="col">Version</th>
+                </tr>
+              </thead>
+        {% if json is defined %}
+               {% for line in json %}
+                    <tr>
+                        <th>{{ line[0] }}</th>
+                        <th>{{ line[1] }}</th>
+                        <th>{{ line[2] }}</th>
+                        <th>{{ line[3] }}</th>
+                    </tr>
+                {% endfor %}
+            
+        {% endif %}
+    </table>
+    <a href="/"><button type="button" class="btn btn-success">Run another test</button></a>
+{% endblock %}

@@ -27,3 +27,9 @@ def portscan(target):
     result = requests.get("http://localhost:5000/portscan/" + target)
     result = result.json()
     return render_template('portscan.html', json=result, message_list=['Portscan done !'])
+
+@app.route('/servicescan/<target>/<ports>')
+def servicescan(target, ports):
+    result = requests.get("http://localhost:5000/servicescan/" + target + "/" + ports)
+    result = result.json()
+    return render_template('servicescan.html', json=result, message_list=['Service scan done !'])

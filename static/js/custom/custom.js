@@ -9,3 +9,9 @@ function jsportscan(){
     document.location = "/portscan/" + text
     print("/portscan/" + text)
 }
+
+function jsservicescan(){
+    text = document.getElementById("servicescaninput_fqdn").value
+    document.location = "/servicescan/" + text + "/" + document.getElementById("servicescaninput_ports").value
+    print("/portscan/" + text)
+}

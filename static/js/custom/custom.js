@@ -15,3 +15,9 @@ function jsservicescan(){
     document.location = "/servicescan/" + text + "/" + document.getElementById("servicescaninput_ports").value
     print("/portscan/" + text)
 }
+
+function jscipherscan(){
+    text = document.getElementById("cipherscaninput").value
+    document.location = "/cipherscan/" + text
+    print("/cipherscan/" + text)
+}

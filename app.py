@@ -33,3 +33,9 @@ def servicescan(target, ports):
     result = requests.get("http://localhost:5000/servicescan/" + target + "/" + ports)
     result = result.json()
     return render_template('servicescan.html', json=result, message_list=['Service scan done !'])
+
+@app.route('/cipherscan/<target>')
+def cipherscan(target):
+    result = requests.get("http://localhost:5000/cipherscan/" + target)
+    result = result.json()
+    return render_template('cipherscan.html', json=result, message_list=['Cipher scan done !'])

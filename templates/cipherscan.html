@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Cipher</th>
+                    <th scope="col">Protocol</th>
+                    <th scope="col">Pubkey Length</th>
+                    <th scope="col">Curves</th>
+                </tr>
+            </thead>
+            {% if json is defined %}
+                {% for cipher in json.ciphersuite %}
+                    <tr>
+                        <th>{{ cipher.cipher }}</th>
+                        <th>{{ cipher.protocols[0] }}</th>
+                        <th>{{ cipher.pubkey[0] }}</th>
+                        <th>
+                            {% for curve in cipher.curves %}
+                                - {{ curve }}<br>
+                            {% endfor %}
+                        </th>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+{% endblock %}

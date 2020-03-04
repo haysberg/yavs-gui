@@ -24,6 +24,21 @@ flask run -p <port>
 ```
 This will allow you to run the GUI from localhost with the port that you chose. Please double check the API to be sure that this is working as intended.
 
+### On a remote server
+If you want to run this program on a remote server, publicly available or not, you will need to use Gunicorn so that your code can run in a real production server.
+
+To run a Gunicorn server, please download it :
+```
+pip3 install gunicorn
+```
+
+Then you can run the following command to make your GUI available :
+```
+gunicorn --bind=<rechable_IP>:<port> <project>:app
+
+Example : gunicorn --bind=192.168.0.200:8000 app:app
+```
+
 ## Dependancies
 - Python 2 & 3
 - Flask

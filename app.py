@@ -1,7 +1,7 @@
 #This is the main file for the vulnerability scanning API.
 #You'll find that this file is very small. It's only job is to initialize the Flask server,
 #and to respond to requests coming to the root URL (/)
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 import json, requests, configparser
 
 
@@ -57,3 +57,9 @@ def cipherscan(target):
     result = requests.get(api_url + "/cipherscan/" + target)
     result = result.json()
     return render_template('cipherscan.html', json=result, message_list=['Cipher scan done !'])
+
+@app.route('/setapi/<url>')
+def setapi(url):
+    global api_url
+    api_url = "http://" + url
+    return Response(url)

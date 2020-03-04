@@ -69,3 +69,8 @@ table{
     width:90% !important;
     margin: auto !important;
 }
+
+.featurebtn{
+    width : 100% !important;
+    padding-bottom: 15px !important;
+}

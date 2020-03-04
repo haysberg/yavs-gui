@@ -4,9 +4,12 @@
 from flask import Flask, render_template, request
 import json, requests, configparser
 
+
+#We get the configuration.ini file to check where the API is located
 config = configparser.ConfigParser()
 config.read('configuration.ini')
 
+#We get the api_url variable and print it for debugging purposes
 global api_url
 api_url = config['DEFAULT']['api_url']
 print(api_url)
@@ -23,6 +26,7 @@ print(app.url_map)
 def main():
     return render_template('index.html', ip=request.remote_addr)
 
+#Calling the ping path on the API calls the /ping/ path on the API
 @app.route('/ping/<target>')
 def ping(target):
     print("Calling : " + api_url + "/ping/" + target)
@@ -30,18 +34,24 @@ def ping(target):
     result = result.json()
     return render_template('ping.html', json=result, message_list=['Ping command done !'])
 
+
+#Portscan
 @app.route('/portscan/<target>')
 def portscan(target):
     result = requests.get(api_url + "/portscan/" + target)
     result = result.json()
     return render_template('portscan.html', json=result, message_list=['Portscan done !'])
 
+
+#Deep service scan
 @app.route('/servicescan/<target>/<ports>')
 def servicescan(target, ports):
     result = requests.get(api_url + "/servicescan/" + target + "/" + ports)
     result = result.json()
     return render_template('servicescan.html', json=result, message_list=['Service scan done !'])
 
+
+#SSL ciphers list check
 @app.route('/cipherscan/<target>')
 def cipherscan(target):
     result = requests.get(api_url + "/cipherscan/" + target)

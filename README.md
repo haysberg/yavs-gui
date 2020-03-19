@@ -16,6 +16,22 @@ api_url = http://<API_FQDN>:<port>
 ```
 And because this project is available on the network and runs only on Linux, here is a pro tip : you can't bind ports < 1024 if you are not root.
 
+
+### Run the full project from Docker
+The easiest way to use the API is to run it from a machine with Docker installed.
+You can run the full api by using the following commands. Docker will automatically download the containers with all the prerequisites already installed, and will run the containers in the background.
+```
+sudo docker run -d -p 0.0.0.0:8000:8000 --network host couaque/yavs-api
+sudo docker run -d -p 0.0.0.0:8001:8001 --network host couaque/yavs-gui
+```
+
+Access the GUI using port 8001 and the API using port 8000. Both use HTTP.
+
+If you want to install docker, you can use the following command if you run on a Debian-based OS :
+```
+sudo apt install docker.io
+```
+
 ## Run the GUI
 ### For testing purposes
 To run this GUI for testing purposes or from your own laptop / raspberry, you can use the following command once you're in the yavs-gui main directory :

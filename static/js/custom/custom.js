@@ -37,3 +37,11 @@ function jssubdomains(){
     document.location = "/subdomains/" + text
     print("/subdomains/" + text)
 }
+
+function jssetapi(){
+    text = document.getElementById("api-url").value
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", "/setapi/" + text, false ); // false for synchronous request
+    xmlHttp.send( null );
+    document.getElementById("api-url").value = "API Endpoint URL set !"
+}

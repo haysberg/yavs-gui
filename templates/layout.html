@@ -3,8 +3,8 @@
 
     <head>
         <title>YAVS GUI</title>
-        <link href="{{ url_for('static', filename="css/custom/main.css")}}" rel="stylesheet">
         <link href="{{ url_for('static', filename="css/bootstrap.css")}}" rel="stylesheet">
+        <link href="{{ url_for('static', filename="css/custom/main.css")}}" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
     </head>
 
@@ -15,8 +15,17 @@
                 YAVS {% if ip is defined %}- {{ip}} {% endif %}
             </a>
             <form class="form-inline">
-                <button class="btn btn-primary" type="button">Main menu</button>
-              </form>
+                <div class="input-group mb-3" style="margin-bottom: 0;">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon3">http://</span>
+                    </div>
+                    <input type="text" placeholder="api_fqdn:port" class="form-control" id="api-url" aria-describedby="basic-addon3">
+                    <div class="input-group-append" id="button-addon4">
+                        <button class="btn btn-outline-secondary" type="button" onclick="jssetapi()">OK</button>
+                    </div>
+                </div>
+                <a href="/"><button class="btn btn-primary" type="button">Main menu</button></a>
+            </form>
         </nav>
         <div class="main_container">
         {% if message_list is defined %}

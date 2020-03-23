@@ -62,6 +62,9 @@ def cipherscan(target):
 def setapi(url):
     global api_url
     api_url = "http://" + url
+    file = open("configuration.ini","w+") 
+    file.write("[DEFAULT]\napi_url = " + api_url)
+    file.close()
     return Response(url)
 
 @app.route('/subdomains/<target>')

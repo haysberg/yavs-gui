@@ -73,3 +73,10 @@ def subdomains(target):
     result = requests.get(api_url + "/subdomains/" + target)
     result = result.json()
     return render_template('subscan.html', json=result, message_list=['Subdomain scan finished!'])
+
+@app.route('/databasescan/<target>')
+def databasescan(target):
+    print("Calling : " + api_url + "/databasescan/" + target)
+    result = requests.get(api_url + "/databasescan/" + target)
+    result = result.json()
+    return render_template('databasescan.html', json=result, message_list=['DB scan finished!'])

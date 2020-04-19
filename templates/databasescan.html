@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="console-output">
+        {% for line in json %}
+            <p class="console-line">{{ line }}</p>
+        {% endfor %}
+    </div>
+    <a href="/"><button type="button" class="btn btn-success">Run another test</button></a>
+{% endblock %}

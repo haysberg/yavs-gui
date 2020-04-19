@@ -31,6 +31,8 @@
     <div class="card text-white bg-secondary my-5 py-4 text-center">
       <div class="card-body">
         <p class="text-white m-0">We hope that you'll feel right at home here, and that your security audit can be as smooth as possible.</p>
+        <hr>
+        <p class="mb-0">If you want to check our source code or want to report a bug feel free to check our <a href="https://github.com/Couaque/yavs-gui">GitHub page</a>.</p>
       </div>
     </div>
 
@@ -40,7 +42,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h2 class="card-title">Ping</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+            <p class="card-text">Ping a host to see if it is up or not.</p>
           </div>
           <div class="card-footer">
                 <button class="btn btn-primary featurebtn" id="ping_button" type="submit"><B onclick="jsping()">Ping</B><input placeholder="IP / FQDN" id="pinginput" class="form-control"></button> 
@@ -52,7 +54,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h2 class="card-title">Port Scan</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+            <p class="card-text">Scan TCP ports to see if they are open. Uses native UNIX sockets.</p>
           </div>
           <div class="card-footer">
             <div class="feature">
@@ -66,7 +68,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h2 class="card-title">Deep Service Scan</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+            <p class="card-text">Give a hostname and a list of ports separated by commas, and this utility will find what services and what version run on these ports.</p>
           </div>
           <div class="card-footer">
             <div class="feature">
@@ -85,7 +87,7 @@
       <div class="card h-100">
         <div class="card-body">
           <h2 class="card-title">Cipher Scan</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+          <p class="card-text">Put the hostname of any SSL-enabled website, and this utility will list what ciphers are used there.</p>
         </div>
         <div class="card-footer">
             <div class="feature">
@@ -99,7 +101,7 @@
       <div class="card h-100">
         <div class="card-body">
           <h2 class="card-title">Subdomain Scan</h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+          <p class="card-text">Give a domain name, and we'll see if we can find subdomains based on it. We use a custom wordlist.</p>
         </div>
         <div class="card-footer">
             <div class="feature">
@@ -122,6 +124,23 @@
         </div>
       </div>
       </div>
+    </div>
+    <div class="row">
+    <!-- /.col-md-4 -->
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Database Scan</h2>
+          <p class="card-text">Put the URL of a form linked to a database. If it's based on MySQL, we'll find vulnerabilities !</p>
+        </div>
+        <div class="card-footer">
+            <div class="feature">
+                <button class="btn btn-primary featurebtn" id="dbscan_button" type="submit"><B onclick="jsdbscan()">Web App Scan</B><input placeholder="Form URL" id="dbscaninput" class="form-control"></button> 
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
     </div>
 
 

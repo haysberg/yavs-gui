@@ -53,3 +53,13 @@ function jswebscan(){
     document.location = "/webappscan/" + text
     print("/webappscan/" + text)
 }
+
+function jsdbscan(){
+    text = document.getElementById("dbscaninput").value
+    text = text.replace(/\//g, "*");
+    text = text.replace(/\?/g, "@");
+    var change = document.getElementById("dbscan_button");
+    change.innerHTML = "Scanning ...";
+    document.location = "/databasescan/" + text
+    print("/databasescan/" + text)
+}

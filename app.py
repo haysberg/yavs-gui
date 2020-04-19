@@ -80,3 +80,10 @@ def databasescan(target):
     result = requests.get(api_url + "/databasescan/" + target)
     result = result.json()
     return render_template('databasescan.html', json=result, message_list=['DB scan finished!'])
+    
+@app.route('/webappscan/<target>')
+def webappscan(target):
+    print("Calling : " + api_url + "/webappscan/" + target)
+    result = requests.get(api_url + "/webappscan/" + target)
+    result = result.json()
+    return render_template('webscan.html', json=result, message_list=['Webapp scan finished!'])

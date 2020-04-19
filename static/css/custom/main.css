@@ -78,4 +78,16 @@ table{
 .input-group{
     margin-bottom: 0 !important;
     margin-right: 5px !important;
+    background-color: #343a40 !important;
+    border-color: #343a40 !important;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #6c757d !important;
+    border-color: #6c757d!important;
+}
+
+.btn-primary:hover {
+    background-color: #9d9d9d !important;
+    border-color: #343a40 !important;
 }

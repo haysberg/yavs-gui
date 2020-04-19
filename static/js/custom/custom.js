@@ -45,3 +45,11 @@ function jssetapi(){
     xmlHttp.send( null );
     document.getElementById("api-url").value = "API Endpoint URL set !"
 }
+
+function jswebscan(){
+    text = document.getElementById("webscaninput").value
+    var change = document.getElementById("webscan_button");
+    change.innerHTML = "Scanning (" + text;
+    document.location = "/webappscan/" + text
+    print("/webappscan/" + text)
+}

@@ -1,11 +1,13 @@
-FROM ubuntu:18.04
+FROM ubuntu:19.10
 
 ENV LANG C.UTF-8  
 ENV LANGUAGE en_US:en  
 ENV LC_ALL C.UTF-8  
 
 RUN apt update && apt full-upgrade -y
+RUN apt install -y python3-pip
 RUN apt install -y python3-flask
+RUN pip3 install flask xmltodict ujson requests gunicorn
 
 
 COPY . /root/yavs-gui

@@ -2,22 +2,132 @@
 {% block content %}
     <div class="feature-container">
         <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Welcome on YAVS !</h4>
+            <h4 class="alert-heading">Welcome to YAVS !</h4>
             <p>We hope that you'll feel right at home here, and that your security audit can be as smooth as possible.</p>
             <hr>
             <p class="mb-0">If you want to check our source code or want to report a bug feel free to check our <a href="https://github.com/Couaque/yavs-gui">GitHub page</a>.</p>
           </div>
-        <div class="feature">
-            <button class="btn btn-primary featurebtn" type="submit"><B onclick="jsping()">Ping</B><input placeholder="IP / FQDN" id="pinginput" class="form-control"></button> 
-        </div>
-        <div class="feature">
-            <button class="btn btn-primary featurebtn" type="submit"><B onclick="jsportscan()">Port scan</B><input placeholder="IP / FQDN" id="portscaninput" class="form-control"></button> 
-        </div>
-        <div class="feature">
-            <button class="btn btn-primary featurebtn" type="submit"><B onclick="jsservicescan()">Deep service scan</B><input placeholder="IP / FQDN" id="servicescaninput_fqdn" class="form-control"><input placeholder="Ports" id="servicescaninput_ports" class="form-control"></button> 
-        </div>
-        <div class="feature">
-            <button class="btn btn-primary featurebtn" type="submit"><B onclick="jscipherscan()">Cipher scan</B><input placeholder="IP / FQDN" id="cipherscaninput" class="form-control"></button> 
-        </div>
     </div>
+
+    <!-- Page Content -->
+  <div class="container">
+
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+      <div class="col-lg-7">
+        <img class="img-fluid rounded mb-4 mb-lg-0" src="/static/logo.jpeg" alt="">
+      </div>
+      <!-- /.col-lg-8 -->
+      <div class="col-lg-5">
+        <h1 class="font-weight-light">Full Vulnerability Scan</h1>
+        <p>This option will run all of our tools against a selected target and report all the results in a single report.</p>
+        <a class="btn btn-primary" href="#">Full Scan</a>
+      </div>
+      <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Tool Selection -->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+      <div class="card-body">
+        <p class="text-white m-0">We hope that you'll feel right at home here, and that your security audit can be as smooth as possible.</p>
+      </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Ping</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+          </div>
+          <div class="card-footer">
+                <button class="btn btn-primary featurebtn" id="ping_button" type="submit"><B onclick="jsping()">Ping</B><input placeholder="IP / FQDN" id="pinginput" class="form-control"></button> 
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Port Scan</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+          </div>
+          <div class="card-footer">
+            <div class="feature">
+                <button class="btn btn-primary featurebtn" id="portscan_button" type="submit"><B onclick="jsportscan()">Port scan</B><input placeholder="IP / FQDN" id="portscaninput" class="form-control"></button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title">Deep Service Scan</h2>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+          </div>
+          <div class="card-footer">
+            <div class="feature">
+                <button class="btn btn-primary featurebtn" id="svcscan_button" type="submit"><B onclick="jsservicescan()">Deep service scan</B><input placeholder="IP / FQDN" id="servicescaninput_fqdn" class="form-control"><input placeholder="Ports" id="servicescaninput_ports" class="form-control"></button> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- /.row -->
+    
+    <!--Second Rowwwwwwwwww -->
+   <!-- Content Row -->
+   <div class="row">
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Cipher Scan</h2>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+        </div>
+        <div class="card-footer">
+            <div class="feature">
+                <button class="btn btn-primary featurebtn" id="cipher_button" type="submit"><B onclick="jscipherscan()">Cipher scan</B><input placeholder="IP / FQDN" id="cipherscaninput" class="form-control"></button> 
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Subdomain Scan</h2>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+        </div>
+        <div class="card-footer">
+            <div class="feature">
+                <button class="btn btn-primary featurebtn" id="subscan_button" type="submit"><B onclick="jssubdomains()">Subdomain Scan</B><input placeholder="Domain" id="subscaninput" class="form-control"></button> 
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-4 mb-5">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Web App Scan</h2>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+        </div>
+        <div class="card-footer">
+            <div class="feature">
+                <button class="btn btn-primary featurebtn" id="webscan_button" type="submit"><B onclick="jswebscan()">Web App Scan</B><input placeholder="Domain" id="webscaninput" class="form-control"></button> 
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+
+  </div>
+  <!-- /.container -->
+
 {% endblock %}
+hello

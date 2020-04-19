@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col"> Subdomain List</th>
+                </tr>
+              </thead>
+        {% if json is defined %}
+               {% for line in json %}
+                    <tr>
+                        <th>{{ line }}</th>
+                    </tr>
+                {% endfor %}
+        {% endif %}
+    </table>
+    <a href="/"><button type="button" class="btn btn-success">Run another test</button></a>
+{% endblock %}

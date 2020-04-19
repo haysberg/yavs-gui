@@ -63,3 +63,17 @@ def setapi(url):
     global api_url
     api_url = "http://" + url
     return Response(url)
+
+@app.route('/subdomains/<target>')
+def subdomains(target):
+    print("Calling : " + api_url + "/subdomains/" + target)
+    result = requests.get(api_url + "/subdomains/" + target)
+    result = result.json()
+    return render_template('subscan.html', json=result, message_list=['Subdomain scan finished!'])
+
+@app.route('/webappscan/<target>')
+def webappscan(target):
+    print("Calling : " + api_url + "/webappscan/" + target)
+    result = requests.get(api_url + "/webappscan/" + target)
+    result = result.json()
+    return render_template('webscan.html', json=result, message_list=['Webapp scan finished!'])

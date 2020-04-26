@@ -10,7 +10,7 @@
                 </tr>
               </thead>
         {% if json is defined %}
-            {% for port, info in json.items() %}
+            {% for port, info in portscan_json.items() %}
             <tr>
                 
                 {% if info == "NO INFO" %}

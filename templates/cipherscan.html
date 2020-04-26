@@ -9,8 +9,8 @@
                     <th scope="col">Curves</th>
                 </tr>
             </thead>
-            {% if json is defined %}
-                {% for cipher in json.ciphersuite %}
+            {% if cipher_json is defined %}
+                {% for cipher in cipher_json.ciphersuite %}
                     <tr>
                         <th>{{ cipher.cipher }}</th>
                         <th>{{ cipher.protocols[0] }}</th>

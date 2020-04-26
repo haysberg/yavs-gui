@@ -9,8 +9,8 @@
                   <th scope="col">Version</th>
                 </tr>
               </thead>
-        {% if json is defined %}
-               {% for line in json %}
+        {% if service_json is defined %}
+               {% for line in service_json %}
                     <tr>
                         <th>{{ line[0] }}</th>
                         <th>{{ line[1] }}</th>

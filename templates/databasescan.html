@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="console-output">
-        {% for line in json %}
+        {% for line in db_json %}
             <p class="console-line">{{ line }}</p>
         {% endfor %}
     </div>

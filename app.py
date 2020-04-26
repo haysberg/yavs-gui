@@ -32,7 +32,7 @@ def ping(target):
     print("Calling : " + api_url + "/ping/" + target)
     result = requests.get(api_url + "/ping/" + target)
     result = result.json()
-    return render_template('ping.html', json=result, message_list=['Ping command done !'])
+    return render_template('ping.html', ping_json=result, message_list=['Ping command done !'])
 
 
 #Portscan
@@ -40,7 +40,7 @@ def ping(target):
 def portscan(target):
     result = requests.get(api_url + "/portscan/" + target)
     result = result.json()
-    return render_template('portscan.html', json=result, message_list=['Portscan done !'])
+    return render_template('portscan.html', portscan_json=result, message_list=['Portscan done !'])
 
 
 #Deep service scan
@@ -48,7 +48,7 @@ def portscan(target):
 def servicescan(target, ports):
     result = requests.get(api_url + "/servicescan/" + target + "/" + ports)
     result = result.json()
-    return render_template('servicescan.html', json=result, message_list=['Service scan done !'])
+    return render_template('servicescan.html', service_json=result, message_list=['Service scan done !'])
 
 
 #SSL ciphers list check
@@ -56,7 +56,7 @@ def servicescan(target, ports):
 def cipherscan(target):
     result = requests.get(api_url + "/cipherscan/" + target)
     result = result.json()
-    return render_template('cipherscan.html', json=result, message_list=['Cipher scan done !'])
+    return render_template('cipherscan.html', cipher_json=result, message_list=['Cipher scan done !'])
 
 @app.route('/setapi/<url>')
 def setapi(url):
@@ -72,18 +72,25 @@ def subdomains(target):
     print("Calling : " + api_url + "/subdomains/" + target)
     result = requests.get(api_url + "/subdomains/" + target)
     result = result.json()
-    return render_template('subscan.html', json=result, message_list=['Subdomain scan finished!'])
+    return render_template('subscan.html', sub_json=result, message_list=['Subdomain scan finished!'])
 
 @app.route('/databasescan/<target>')
 def databasescan(target):
     print("Calling : " + api_url + "/databasescan/" + target)
     result = requests.get(api_url + "/databasescan/" + target)
     result = result.json()
-    return render_template('databasescan.html', json=result, message_list=['DB scan finished!'])
+    return render_template('databasescan.html', dbscan_json=result, message_list=['DB scan finished!'])
     
 @app.route('/webappscan/<target>')
 def webappscan(target):
     print("Calling : " + api_url + "/webappscan/" + target)
     result = requests.get(api_url + "/webappscan/" + target)
     result = result.json()
-    return render_template('webscan.html', json=result, message_list=['Webapp scan finished!'])
+    return render_template('webscan.html', webapp_json=result, message_list=['Webapp scan finished!'])
+    
+@app.route('/fullscan/<target>')
+def fullscan(target):
+    print("Calling : " + api_url + "/fullscan/" + target)
+    result = requests.get(api_url + "/fullscan/" + target)
+    result = result.json()
+    return render_template('fullscan.html', json=result, message_list=['Webapp scan finished!'])

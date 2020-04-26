@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block error %}
+<div class="alert alert-error" role="alert">
+    <h4 class="alert-heading">Something went wrong :(
+    <p>It looks like the subprocess running the code came back with a return code indicating an error. Unless you put some funky input to test the limits of our code, you should most probably report this on our GitHub Page.</p>
+    <hr>
+    <p class="mb-0">Here is the output of the application for troubleshooting purposes : </p>
+  </div>
+    <div class="console-output">
+        {% for line in error_json %}
+            <p class="console-line">{{ line }}</p>
+        {% endfor %}
+    </div>
+    <a href="/"><button type="button" class="btn btn-success">Run another test</button></a>
+{% endblock %}

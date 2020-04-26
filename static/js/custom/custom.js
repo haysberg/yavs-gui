@@ -63,3 +63,28 @@ function jsdbscan(){
     document.location = "/databasescan/" + text
     print("/databasescan/" + text)
 }
+
+function jsfullscan(){
+    text = "/fullscan/" + document.getElementById("fullscaninput").value
+    if (document.getElementById("nikto").checked)
+    {
+        text = text + "/do"
+    }
+    else
+    {
+        text = text + "/dont"
+    }
+
+    if (document.getElementById("pdf").checked)
+    {
+        text = text + "/do"
+    }
+    else
+    {
+        text = text + "/dont"
+    }
+
+    var change = document.getElementById("fullscancard");
+    change.innerHTML = "Scanning ...";
+    document.location = text
+}

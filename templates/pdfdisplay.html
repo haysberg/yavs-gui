@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Titre du document</title>
+  </head>
+  <body>
+    <iframe src="{{ url_for('static', filename="pdfs/{{ pdfname }}.pdf")}}"></iframe>
+  </body>
+</html>

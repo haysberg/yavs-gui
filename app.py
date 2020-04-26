@@ -1,9 +1,9 @@
 #This is the main file for the vulnerability scanning API.
 #You'll find that this file is very small. It's only job is to initialize the Flask server,
 #and to respond to requests coming to the root URL (/)
-from flask import Flask, render_template, request, Response
-import json, requests, configparser
-
+from flask import Flask, render_template, request, Response, url_for
+import json, requests, configparser, weasyprint, string, random, os
+from flask_weasyprint import HTML, render_pdf
 
 #We get the configuration.ini file to check where the API is located
 config = configparser.ConfigParser()
@@ -87,10 +87,22 @@ def webappscan(target):
     result = requests.get(api_url + "/webappscan/" + target)
     result = result.json()
     return render_template('webscan.html', webapp_json=result, message_list=['Webapp scan finished!'])
-    
+
+@app.route('/pdf/<path>')
+def dlpdf(path):
+    filepath = os.path.join(app.root_path, 'static', 'customlogos', path + '.pdf')
+    f=open(filepath, "r", encoding = 'ISO-8859-1')
+    pdf = f.read()
+    print(pdf)
+    return Response(pdf, mimetype="application/pdf")
+
+def randomString(stringLength=8):
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(stringLength))
+
 @app.route('/fullscan/<target>')
-@app.route('/fullscan/<target>/<dowebscan>')
-def fullscan(target, dowebscan = True):
+@app.route('/fullscan/<target>/<dowebscan>/<render_as_pdf>')
+def fullscan(target, dowebscan = "do", render_as_pdf = True):
     print("Calling : " + api_url + "/fullscan/" + target)
 
     ping = requests.get(api_url + "/ping/" + target)
@@ -118,10 +130,15 @@ def fullscan(target, dowebscan = True):
     services = requests.get(api_url + "/servicescan/" + target + "/" + portstring)
     services = services.json()
 
-    if dowebscan == True :
+    if dowebscan == "do" :
         nikto = requests.get(api_url + "/webappscan/" + target)
         nikto = nikto.json()
     else :
         nikto = []
+
+    bytestring = render_template('fullscan.html', portscan_json=ports, cipher_json=ciphers, service_json=services, ping_json=ping, webapp_json=nikto)
+
+    if render_as_pdf == "do" :
+        return render_pdf(HTML(string=bytestring))
 
     return render_template('fullscan.html', portscan_json=ports, cipher_json=ciphers, service_json=services, ping_json=ping, webapp_json=nikto)

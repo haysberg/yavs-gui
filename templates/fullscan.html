@@ -1,14 +1,21 @@
-{% extends "layout.html" %}
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 {% block content %}
-<div class="console-output">
+
+<h1>PING RESULTS</h1>
+<br>
+<code>
     {% for line in ping_json %}
         <p class="console-line">{{ line }}</p>
     {% endfor %}
-</div>
+</code>
 
+
+<br>
+<h1>PORT SCAN RESULTS</h1>
+<br>
 
         {% if portscan_json is defined %}
-        <table class="table table-bordered table-hover">
+        <table class="pure-table">
             <thead class="thead-dark">
                 <tr>
                   <th scope="col">Port #</th>
@@ -42,8 +49,14 @@
     
     
 
+
         {% if cipher_json is defined %}
-        <table class="table table-bordered table-hover">
+
+        <br>
+            <h1>CIPHER SCAN RESULTS</h1>
+        <br>
+
+        <table class="pure-table">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Cipher</th>
@@ -68,7 +81,12 @@
 
 
         {% if service_json is defined %}
-        <table class="table table-bordered table-hover">
+
+        <br>
+        <h1>DEEP SERVICE SCAN RESULTS</h1>
+        <br>
+
+        <table class="pure-table">
             <thead class="thead-dark">
                 <tr>
                   <th scope="col">Port #</th>
@@ -89,8 +107,12 @@
     </table>
 
 
+
     {% if webapp_json[0] is defined %}
-    <table class="table table-bordered table-hover">
+    <br>
+    <h1>NIKTO SCAN RESULTS</h1>
+    <br>
+    <table class="pure-table">
         <thead class="thead-dark">
             <tr>
               <th scope="col"> Web Application Scan</th>

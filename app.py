@@ -89,8 +89,39 @@ def webappscan(target):
     return render_template('webscan.html', webapp_json=result, message_list=['Webapp scan finished!'])
     
 @app.route('/fullscan/<target>')
-def fullscan(target):
+@app.route('/fullscan/<target>/<dowebscan>')
+def fullscan(target, dowebscan = True):
     print("Calling : " + api_url + "/fullscan/" + target)
-    result = requests.get(api_url + "/fullscan/" + target)
-    result = result.json()
-    return render_template('fullscan.html', json=result, message_list=['Webapp scan finished!'])
+
+    ping = requests.get(api_url + "/ping/" + target)
+    ping = ping.json()
+
+    #We get the ports from the API
+    ports = requests.get(api_url + "/portscan/" + target)
+    ports = ports.json()
+
+    if "443" in ports :
+        ciphers = requests.get(api_url + "/cipherscan/" + target)
+        ciphers = ciphers.json()
+    else :
+        ciphers = []
+    
+    portlist = []
+    for key in ports :
+        print(key)
+        portlist.append(key)
+        
+    portstring = portlist[0]
+    for port in portlist[1:] :
+        portstring = portstring + ","
+        portstring = portstring + port
+    services = requests.get(api_url + "/servicescan/" + target + "/" + portstring)
+    services = services.json()
+
+    if dowebscan == True :
+        nikto = requests.get(api_url + "/webappscan/" + target)
+        nikto = nikto.json()
+    else :
+        nikto = []
+
+    return render_template('fullscan.html', portscan_json=ports, cipher_json=ciphers, service_json=services, ping_json=ping, webapp_json=nikto)

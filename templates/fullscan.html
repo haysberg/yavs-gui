@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="console-output">
+    {% for line in ping_json %}
+        <p class="console-line">{{ line }}</p>
+    {% endfor %}
+</div>
+
+
+        {% if portscan_json is defined %}
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Port #</th>
+                  <th scope="col">Protocol</th>
+                  <th scope="col">L3 Protocol</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+            {% for port, info in portscan_json.items() %}
+            <tr>
+                
+                {% if info == "NO INFO" %}
+                    <th>{{ port }}</th>
+                    <td>NO INFO</td>
+                    <td>NO INFO</td>
+                    <td>NO INFO</td>
+                </tr>
+                {% else %}
+                    {% for description in info %}
+                        <th>{{ port }}</th>
+                        <td>{{ description.name }}</td>
+                        <td>{{ description.protocol }}</td>
+                        <td>{{ description.description }}</td>
+                    </tr>
+                    {% endfor %}
+                {% endif %}
+                
+            {% endfor %}
+        </table>
+        {% endif %}
+    
+    
+
+        {% if cipher_json is defined %}
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Cipher</th>
+                    <th scope="col">Protocol</th>
+                    <th scope="col">Pubkey Length</th>
+                    <th scope="col">Curves</th>
+                </tr>
+            </thead>
+            {% for cipher in cipher_json.ciphersuite %}
+                <tr>
+                    <th>{{ cipher.cipher }}</th>
+                    <th>{{ cipher.protocols[0] }}</th>
+                    <th>{{ cipher.pubkey[0] }}</th>
+                    <th>
+                        {% for curve in cipher.curves %}
+                            - {{ curve }}<br>
+                        {% endfor %}
+                    </th>
+                </tr>
+            {% endfor %}
+        {% endif %}
+
+
+        {% if service_json is defined %}
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Port #</th>
+                  <th scope="col">Opened / Closed</th>
+                  <th scope="col">Service</th>
+                  <th scope="col">Version</th>
+                </tr>
+              </thead>
+               {% for line in service_json %}
+                    <tr>
+                        <th>{{ line[0] }}</th>
+                        <th>{{ line[1] }}</th>
+                        <th>{{ line[2] }}</th>
+                        <th>{{ line[3] }}</th>
+                    </tr>
+                {% endfor %}
+        {% endif %}
+    </table>
+
+
+    {% if webapp_json[0] is defined %}
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col"> Web Application Scan</th>
+            </tr>
+          </thead>
+           {% for line in webapp_json %}
+                <tr>
+                    <th>{{ line }}</th>
+                </tr>
+            {% endfor %}
+    {% endif %}
+</table>
+<p></p>
+{% endblock %}

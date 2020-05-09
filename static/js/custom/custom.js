@@ -17,8 +17,8 @@ function jsportscan(){
 function jsservicescan(){
     text = document.getElementById("servicescaninput_fqdn").value
     var change = document.getElementById("svcscan_button");
-    change.innerHTML = "Scanning Services on " + text + "...";
     document.location = "/servicescan/" + text + "/" + document.getElementById("servicescaninput_ports").value
+    change.innerHTML = "Scanning Services on " + text + "...";
     print("/portscan/" + text)
 }
 

@@ -79,7 +79,7 @@ def databasescan(target):
     print("Calling : " + api_url + "/databasescan/" + target)
     result = requests.get(api_url + "/databasescan/" + target)
     result = result.json()
-    return render_template('databasescan.html', dbscan_json=result, message_list=['DB scan finished!'])
+    return render_template('databasescan.html', db_json=result, message_list=['DB scan finished!'])
     
 @app.route('/webappscan/<target>')
 def webappscan(target):

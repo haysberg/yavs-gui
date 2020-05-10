@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
 {% block content %}
 
-<h1>PING RESULTS</h1>
+<h3>PING RESULTS</h3>
 <br>
 <code>
     {% for line in ping_json %}
@@ -11,7 +11,7 @@
 
 
 <br>
-<h1>PORT SCAN RESULTS</h1>
+<h3>PORT SCAN RESULTS</h3>
 <br>
 
         {% if portscan_json is defined %}
@@ -53,7 +53,7 @@
         {% if cipher_json is defined %}
 
         <br>
-            <h1>CIPHER SCAN RESULTS</h1>
+            <h3>CIPHER SCAN RESULTS</h3>
         <br>
 
         <table class="pure-table">
@@ -77,13 +77,14 @@
                     </th>
                 </tr>
             {% endfor %}
+        </table>
         {% endif %}
 
 
         {% if service_json is defined %}
 
         <br>
-        <h1>DEEP SERVICE SCAN RESULTS</h1>
+        <h3>DEEP SERVICE SCAN RESULTS</h3>
         <br>
 
         <table class="pure-table">
@@ -110,7 +111,7 @@
 
     {% if webapp_json[0] is defined %}
     <br>
-    <h1>NIKTO SCAN RESULTS</h1>
+    <h3>NIKTO SCAN RESULTS</h3>
     <br>
     <table class="pure-table">
         <thead class="thead-dark">
